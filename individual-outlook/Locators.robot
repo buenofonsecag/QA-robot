@@ -21,3 +21,8 @@ ${PREENCHER CORPO}    //*[@id="contentDiv_0"]
 ${BOTAO ENVIAR EMAIL}    //*[@id="docking_InitVisiblePart_0"]/div/div[2]/div[1]/div/span/button[1] 
 ${CONFIRMAR ENVIO}    id=ok-1
 ${IMAGEM EMAIL ENVIADO}    //*[@id="ReadingPaneContainerId"]/div/div/div/img
+
+
+
+${PESQUISA}    id=topSearchInput
+${PRINCIPAIS RESULTADOS}    //*[@id="groupHeaderPrincipais resultados"]/div

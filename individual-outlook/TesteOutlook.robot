@@ -19,3 +19,13 @@ Mandar novo email
     E enviar o email
     # E confirmar o envio #na primeira vez se fez necessario
     Então deve aparecer uma imagem como evidência que o email foi enviado
+
+Pesquisar emails
+    Dado que eu realize o login
+    Quando eu clicar na barra de pesquisa
+    E preencho com o que quero pesquisar
+    E pressionar "Enter" ou clicar no botão de pesquisa
+    Então o sistema deverá exibir os resultados relevantes que correspondam à palavra-chave
+
+    
+

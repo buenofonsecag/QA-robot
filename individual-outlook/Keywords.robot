@@ -68,4 +68,25 @@ Então deve aparecer uma imagem como evidência que o email foi enviado
 
 
 
+*** Keywords ***
+Quando eu clicar na barra de pesquisa
+    Click Element    ${PESQUISA}
+
+E preencho com o que quero pesquisar
+    Input Text    ${PESQUISA}    Gustavo Pardinho
+
+E pressionar "Enter" ou clicar no botão de pesquisa
+    Press Keys    none    ENTER
+
+Então o sistema deverá exibir os resultados relevantes que correspondam à palavra-chave
+    Wait Until Element Is Visible    ${PRINCIPAIS RESULTADOS}
+    Element Should Be Visible    ${PRINCIPAIS RESULTADOS}
+
+
+
+
+
+
+
+
 
