@@ -60,6 +60,7 @@ E confirmar o envio
     Click Element    ${CONFIRMAR ENVIO}
 
 Então deve aparecer uma imagem como evidência que o email foi enviado
+    Wait Until Page Contains Element    ${IMAGEM EMAIL ENVIADO}
     Element Should Be Visible    ${IMAGEM EMAIL ENVIADO}
 
 
@@ -81,6 +82,27 @@ E pressionar "Enter" ou clicar no botão de pesquisa
 Então o sistema deverá exibir os resultados relevantes que correspondam à palavra-chave
     Wait Until Element Is Visible    ${PRINCIPAIS RESULTADOS}
     Element Should Be Visible    ${PRINCIPAIS RESULTADOS}
+
+
+
+
+
+***Keywords***
+ Quando abrir um e-mail na caixa de entrada
+     Click Element    ${DIV EMAIL}
+
+E clicar no botão "Responder"
+    Press Keys       none       R
+    # Click Element    ${BOTAO RESPONDER EMAIL}
+
+E redigir a resposta no campo de texto
+    Wait Until Element Is Visible    ${INPUT CORPO}
+    Click Element    ${INPUT CORPO}
+    Input Text    ${CORPO RESPOSTA}    Resposta teste
+
+E clicar no botão "Enviar"
+    Wait Until Element Is Visible    ${BOTAO ENVIAR EMAIL RESPOSTA}
+    Click Button    ${BOTAO ENVIAR EMAIL RESPOSTA}
 
 
 

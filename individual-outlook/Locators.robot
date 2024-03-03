@@ -26,3 +26,9 @@ ${IMAGEM EMAIL ENVIADO}    //*[@id="ReadingPaneContainerId"]/div/div/div/img
 
 ${PESQUISA}    id=topSearchInput
 ${PRINCIPAIS RESULTADOS}    //*[@id="groupHeaderPrincipais resultados"]/div
+
+
+${DIV EMAIL}    id=AQAAAAAAAQABAAAAlhV60gAAAAA=
+${BOTAO RESPONDER EMAIL}    //*[@id="ConversationReadingPaneContainer"]/div[2]/div/div/div[1]/div/div/div/div/div[6]/button[1]
+${CORPO RESPOSTA}    //*[@id="contentDiv_0"]
+${BOTAO ENVIAR EMAIL RESPOSTA}    //*[@id="docking_InitVisiblePart_0"]/div/div[5]/div[4]/div[1]/div/div/span/button[1]
