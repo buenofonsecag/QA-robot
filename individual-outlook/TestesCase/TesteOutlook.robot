@@ -1,8 +1,8 @@
 *** Settings ***
-Resource    SetupTeardown.robot
-Resource    Locators.robot
-Resource    Keywords.robot
-Resource    Login.robot
+Resource    ../PageObjects/SetupTeardown.robot
+Resource    ../Resources/Locators.robot
+Resource   ../PageObjects/Keywords.robot
+Resource    ../PageObjects/Login.robot
 
 Test Teardown        Fechar Navegador
 
@@ -16,10 +16,10 @@ Mandar novo email
     E preencho para quem
     E preencher o corpo
     E enviar o email
-    E confirmar o envio     # se fez necessario
+    E confirmar o envio     #
     Então deve aparecer uma imagem como evidência que o email foi enviado
 
-Pesquisar emails
+Pesquisar email
     Dado que eu realize o login
     Quando eu clicar na barra de pesquisa
     E preencho com o que quero pesquisar
@@ -40,13 +40,13 @@ Responder email
 #     E preencher com o nome da nova pasta
 #     E pressionar a tecla "Enter"    
 
-Excluir emails 
+Excluir email
     Dado que eu realize o login
-    Quando clicar em "outros"
-    E selecionar um email
-    E pressionar a tecla "Delete"
+    Quando selecionar um email
+    E pressionar a tecla "Delete" ou clicar no icone de excluir
     Entao deve aparecer uma notificação que o email foi apagado
-    E desfazer apagado
+    E desfazer apagado    #É USADO APENAS PARA TESTES
+                            # Sleep    5s
 
 
 

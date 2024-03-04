@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    SetupTeardown.robot
-Resource    Keywords.robot
+Resource    ../PageObjects/SetupTeardown.robot
+Resource    ../PageObjects/Keywords.robot
 
 *** Variables ***
 ${URL}    https://outlook.com
@@ -41,8 +41,7 @@ ${NOME DA PASTA}    Execute Javascript    return    CalendarioAtual()
 ${INPUT PASTA}    //*[@id="folderPaneDroppableContainer"]/div/div[3]/div/div/span
 
 
-# ${EMAIL APAGAR}    //*[@id="AQAAAAAAAQABAAAAhyc6LgAAAAA="]/div/div
 ${BOTAO OUTROS}          css:span.ms-Pivot-text
 ${NOTIFICACAO}        //*[@id="Pular para lista de mensagens-region"]/div[3]/div/div
-
+${BOTAO APAGAR}    //*[@id="innerRibbonContainer"]/div[1]/div/div/div/div[2]/div/div/span/button[1]
 ${DESFAZER APAGADO}    //*[@id="Pular para lista de mensagens-region"]/div[3]/div/div/div[2]/button[1]

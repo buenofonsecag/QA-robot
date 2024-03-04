@@ -1,7 +1,6 @@
 *** Settings ***
-Resource    Locators.robot
-Resource    TesteOutlook.robot
-Library    Process
+Resource    ../Resources/Locators.robot
+Resource    ../TestesCase/TesteOutlook.robot
 
 *** Keywords ***    #REALIZAR LOGIN
 Quando eu clico no botão iniciar sessão
@@ -37,20 +36,13 @@ E preencho para quem
      Wait Until Page Contains Element    ${INPUT PARA}
     Click Element    ${INPUT PARA}
     Input Text    ${INPUT PARA}    gustavo.fonseca@sptech.school
-    Sleep    2s
     Press Keys    none    ENTER
-
-# E preencho CC
-#     Input Text    ${INPUT CC}    text
-
 
 E preencho o asssunto
     Click Element    ${INPUT ASSUNTO}
-    # Input Text    ${INPUT ASSUNTO}    Teste A2A
 
 E preencher o corpo
     Click Element    ${INPUT CORPO}
-    Sleep    2s
 
 E enviar o email
     Click Element    ${BOTAO ENVIAR EMAIL}
@@ -59,6 +51,7 @@ E enviar o email
 E confirmar o envio
     Wait Until Page Contains Element    ${CONFIRMAR ENVIO}
     Scroll Element Into View    ${CONFIRMAR ENVIO}
+    Sleep    1s
     Click Element    ${CONFIRMAR ENVIO}
 
 Então deve aparecer uma imagem como evidência que o email foi enviado
@@ -67,7 +60,7 @@ Então deve aparecer uma imagem como evidência que o email foi enviado
 
 
 
-*** Keywords ***
+*** Keywords ***    #REALIZAR PESQUISA
 Quando eu clicar na barra de pesquisa
     Click Element    ${PESQUISA}
 
@@ -82,7 +75,7 @@ Então o sistema deverá exibir os resultados relevantes que correspondam à pal
     Element Should Be Visible    ${PRINCIPAIS RESULTADOS}
 
 
-***Keywords***
+*** Keywords ***    #RESPONDER EMAIL
  Quando abrir um email na caixa de entrada
      Scroll Element Into View    ${DIV EMAIL}
      Click Element    ${DIV EMAIL}
@@ -103,7 +96,7 @@ E clicar no botão "Enviar"
 Então deve sumir o botão de enviar resposta como evidencia que a resposta foi enviada
     Element Should Not Be Visible   ${CORPO RESPOSTA}
 
-*** Keywords ***
+*** Keywords ***    #CRIAR NOVA PASTA
 Quando clicar em "criar nova pasta"
     Scroll Element Into View    ${CRIAR PASTA}
     Click Element    ${CRIAR PASTA}
@@ -115,23 +108,16 @@ E preencher com o nome da nova pasta
 E pressionar a tecla "Enter"
     Press Keys    none    ENTER
 
+*** Keywords ***    #APAGAR EMAILS
 
 
-
-
-
-
-
-Quando clicar em "outros"
-    # Wait Until Element Is Visible    ${BOTAO OUTROS}
-    Click Element    ${BOTAO OUTROS}
-
-E selecionar um email
-    Sleep    1s    #é necessário para o processamento
+Quando selecionar um email
     Press Keys    none       DOWN
+    Press Keys    none       UP
    
-E pressionar a tecla "Delete"
-    Press Keys    none    Delete
+E pressionar a tecla "Delete" ou clicar no icone de excluir
+    Click Element    ${BOTAO APAGAR}
+    # Press Keys    none    Delete
 
 Entao deve aparecer uma notificação que o email foi apagado
     Wait Until Element Is Visible    ${NOTIFICACAO}

@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    Locators.robot
+Resource    ../Resources/Locators.robot
 
 *** Keywords ***
 Dado que eu acesse o site da outlook

@@ -1,8 +1,8 @@
 *** Settings ***
-Resource    SetupTeardown.robot
-Resource    Locators.robot
-Resource    Keywords.robot
-Resource    TesteOutlook.robot
+Resource    ../PageObjects/SetupTeardown.robot
+Resource    ../Resources/Locators.robot
+Resource    ../PageObjects/Keywords.robot
+Resource    ../TestesCase/TesteOutlook.robot
 
 Test Teardown        Fechar Navegador
 
@@ -17,5 +17,4 @@ Login
     Sleep    1s    #para garantir que vai carregar a página
     E clico no botão avançar
     E clico no botão avançar
-    Sleep    2s
     Então deve aparecer o botão "novo email" como evidencia de que o login foi feito
