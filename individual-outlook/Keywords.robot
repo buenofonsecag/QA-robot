@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    Locators.robot
 Resource    TesteOutlook.robot
+Library    Process
 
 *** Keywords ***    #REALIZAR LOGIN
 Quando eu clico no botão iniciar sessão
@@ -57,15 +58,12 @@ E enviar o email
 
 E confirmar o envio
     Wait Until Page Contains Element    ${CONFIRMAR ENVIO}
+    Scroll Element Into View    ${CONFIRMAR ENVIO}
     Click Element    ${CONFIRMAR ENVIO}
 
 Então deve aparecer uma imagem como evidência que o email foi enviado
     Wait Until Page Contains Element    ${IMAGEM EMAIL ENVIADO}
     Element Should Be Visible    ${IMAGEM EMAIL ENVIADO}
-
-
-
-
 
 
 
@@ -84,11 +82,9 @@ Então o sistema deverá exibir os resultados relevantes que correspondam à pal
     Element Should Be Visible    ${PRINCIPAIS RESULTADOS}
 
 
-
-
-
 ***Keywords***
- Quando abrir um e-mail na caixa de entrada
+ Quando abrir um email na caixa de entrada
+     Scroll Element Into View    ${DIV EMAIL}
      Click Element    ${DIV EMAIL}
 
 E clicar no botão "Responder"
@@ -104,9 +100,45 @@ E clicar no botão "Enviar"
     Wait Until Element Is Visible    ${BOTAO ENVIAR EMAIL RESPOSTA}
     Click Button    ${BOTAO ENVIAR EMAIL RESPOSTA}
 
+Então deve sumir o botão de enviar resposta como evidencia que a resposta foi enviada
+    Element Should Not Be Visible   ${CORPO RESPOSTA}
+
+*** Keywords ***
+Quando clicar em "criar nova pasta"
+    Scroll Element Into View    ${CRIAR PASTA}
+    Click Element    ${CRIAR PASTA}
+E preencher com o nome da nova pasta
+    # Execute Javascript    return    CalendarioAtual()
+    # Wait Until Element Is Visible    ${INPUT PASTA}    
+    Input Text     ${INPUT PASTA}    OLA
+
+E pressionar a tecla "Enter"
+    Press Keys    none    ENTER
 
 
 
+
+
+
+
+
+Quando clicar em "outros"
+    # Wait Until Element Is Visible    ${BOTAO OUTROS}
+    Click Element    ${BOTAO OUTROS}
+
+E selecionar um email
+    Sleep    1s    #é necessário para o processamento
+    Press Keys    none       DOWN
+   
+E pressionar a tecla "Delete"
+    Press Keys    none    Delete
+
+Entao deve aparecer uma notificação que o email foi apagado
+    Wait Until Element Is Visible    ${NOTIFICACAO}
+    Element Should Be Visible    ${NOTIFICACAO}
+
+E desfazer apagado
+    Click Element    ${DESFAZER APAGADO}
 
 
 

@@ -28,7 +28,21 @@ ${PESQUISA}    id=topSearchInput
 ${PRINCIPAIS RESULTADOS}    //*[@id="groupHeaderPrincipais resultados"]/div
 
 
-${DIV EMAIL}    id=AQAAAAAAAQABAAAAlhV60gAAAAA=
+${DIV EMAIL}    //*[@id="AQAAAAAAAQABAAAAlhV6xgAAAAA="]/div/div/div[2]
 ${BOTAO RESPONDER EMAIL}    //*[@id="ConversationReadingPaneContainer"]/div[2]/div/div/div[1]/div/div/div/div/div[6]/button[1]
 ${CORPO RESPOSTA}    //*[@id="contentDiv_0"]
 ${BOTAO ENVIAR EMAIL RESPOSTA}    //*[@id="docking_InitVisiblePart_0"]/div/div[5]/div[4]/div[1]/div/div/span/button[1]
+${CORPO DA PAGINA}    //*[@id="ConversationReadingPaneContainer"]/div[2]/div/div
+
+
+
+${CRIAR PASTA}    //*[@id="folderPaneDroppableContainer"]/div/div[3]/div/div/div[12]/div
+${NOME DA PASTA}    Execute Javascript    return    CalendarioAtual()   
+${INPUT PASTA}    //*[@id="folderPaneDroppableContainer"]/div/div[3]/div/div/span
+
+
+# ${EMAIL APAGAR}    //*[@id="AQAAAAAAAQABAAAAhyc6LgAAAAA="]/div/div
+${BOTAO OUTROS}          css:span.ms-Pivot-text
+${NOTIFICACAO}        //*[@id="Pular para lista de mensagens-region"]/div[3]/div/div
+
+${DESFAZER APAGADO}    //*[@id="Pular para lista de mensagens-region"]/div[3]/div/div/div[2]/button[1]

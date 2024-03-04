@@ -4,7 +4,6 @@ Resource    Locators.robot
 Resource    Keywords.robot
 Resource    Login.robot
 
-Test Setup           Dado que eu acesse o site da outlook
 Test Teardown        Fechar Navegador
 
 *** Test Cases ***
@@ -17,8 +16,7 @@ Mandar novo email
     E preencho para quem
     E preencher o corpo
     E enviar o email
-    Sleep    2s
-    # E confirmar o envio #na primeira vez se fez necessario
+    E confirmar o envio     # se fez necessario
     Então deve aparecer uma imagem como evidência que o email foi enviado
 
 Pesquisar emails
@@ -30,11 +28,25 @@ Pesquisar emails
 
 Responder email
     Dado que eu realize o login
-    Quando abrir um e-mail na caixa de entrada
+    Quando abrir um email na caixa de entrada
     E clicar no botão "Responder"
     E redigir a resposta no campo de texto
     E clicar no botão "Enviar"
-    Sleep    1000s
-    # Então a resposta deverá ser enviada com sucesso ao remetente do e-mail original
-    # E o usuário deverá receber uma confirmação de envio da resposta
+    Então deve sumir o botão de enviar resposta como evidencia que a resposta foi enviada
+   
+# Criar pastas
+#     Dado que eu realize o login
+#     Quando clicar em "criar nova pasta"
+#     E preencher com o nome da nova pasta
+#     E pressionar a tecla "Enter"    
+
+Excluir emails 
+    Dado que eu realize o login
+    Quando clicar em "outros"
+    E selecionar um email
+    E pressionar a tecla "Delete"
+    Entao deve aparecer uma notificação que o email foi apagado
+    E desfazer apagado
+
+
 

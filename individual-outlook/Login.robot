@@ -4,11 +4,11 @@ Resource    Locators.robot
 Resource    Keywords.robot
 Resource    TesteOutlook.robot
 
-Test Setup           Dado que eu acesse o site da outlook
 Test Teardown        Fechar Navegador
 
 *** Keywords ***
 Login
+    Dado que eu acesse o site da outlook
     Quando eu clico no botão iniciar sessão
     E mudar para nova aba
     E preencher email
